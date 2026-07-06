@@ -1,0 +1,2170 @@
+/*==================================================
+OCA ENGENHARIA
+PORTFÓLIO PREMIUM
+Autor: OpenAI + Rodrigo Souza
+==================================================*/
+
+
+/*=============================
+RESET
+=============================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Manrope',sans-serif;
+
+    background:#006298;
+
+    color:#FFF;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+
+
+/*=============================
+VARIÁVEIS
+=============================*/
+
+:root{
+
+    --white:#FFFFFF;
+
+    --black:#000000;
+
+    --overlay:rgba(0,0,0,.45);
+
+    --overlay-dark:rgba(0,0,0,.65);
+
+    --gray:#bfbfbf;
+
+    --transition:.6s;
+
+    --radius:12px;
+
+}
+
+
+
+/*=============================
+SCROLLBAR
+=============================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#000;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#888;
+
+}
+
+
+
+/*=============================
+LOADER
+=============================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    transition:1s;
+
+}
+
+.spinner{
+
+    width:65px;
+
+    height:65px;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    border-top:2px solid #FFF;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+/*=============================
+HEADER
+=============================*/
+
+#header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:28px 70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:9999;
+
+    transition:.5s;
+
+}
+
+#header.scrolled{
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(18px);
+
+}
+
+
+
+/*=============================
+LOGO
+=============================*/
+
+.logo img{
+
+    width:100px;
+
+    transition:.5s;
+
+}
+
+
+
+/*=============================
+MENU
+=============================*/
+
+nav{
+
+    display:flex;
+
+    gap:55px;
+
+}
+
+nav a{
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#FFF;
+
+    transition:.35s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+
+/*=============================
+HOME
+=============================*/
+
+#home{
+
+    height:100vh;
+
+    width:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+}
+
+#home .background{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    animation:kenburns 18s ease forwards;
+
+}
+
+@keyframes kenburns{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+#home .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to right,
+    rgba(0,0,0,.72),
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.15));
+
+}
+
+
+
+/*=============================
+HOME CONTENT
+=============================*/
+
+.hero{
+
+    position:relative;
+
+    z-index:20;
+
+    max-width:720px;
+
+    margin-left:90px;
+
+}
+
+.location{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    color:#d9d9d9;
+
+}
+
+.hero h1{
+
+    font-size:88px;
+
+    line-height:92px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+}
+
+.hero h2{
+
+    font-size:28px;
+
+    font-weight:500;
+
+    color:#DDD;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+    line-height:36px;
+
+    max-width:620px;
+
+    color:#DDD;
+
+}
+
+
+
+/*=============================
+BOTÃO
+=============================*/
+
+.btn{
+
+    display:inline-flex;
+
+    margin-top:50px;
+
+    padding:18px 42px;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    letter-spacing:2px;
+
+    transition:.45s;
+
+}
+
+.btn:hover{
+
+    background:#FFF;
+
+    color:#000;
+
+}
+
+
+
+/*=============================
+SCROLL INDICATOR
+=============================*/
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:45px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+
+    text-align:center;
+
+    animation:float 2s infinite;
+
+}
+
+.scroll-indicator span{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+}
+
+.mouse{
+
+    font-size:26px;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translate(-50%,0);
+
+    }
+
+    50%{
+
+        transform:translate(-50%,12px);
+
+    }
+
+    100%{
+
+        transform:translate(-50%,0);
+
+    }
+
+}
+
+
+
+/*=============================
+SOBRE
+=============================*/
+
+#sobre{
+
+    height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+#sobre .background{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+#sobre .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+}
+
+.about-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:650px;
+
+    margin-left:90px;
+
+}
+
+.small-title{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    letter-spacing:4px;
+
+    font-size:14px;
+
+    color:#DDD;
+
+}
+
+.about-content h2{
+
+    font-size:64px;
+
+    line-height:70px;
+
+    margin-bottom:35px;
+
+}
+
+.about-content p{
+
+    font-size:20px;
+
+    line-height:36px;
+
+    color:#DDD;
+
+    margin-bottom:24px;
+
+}
+
+/*==================================================
+PROJETOS
+==================================================*/
+
+#projetos{
+    position:relative;
+    width:100%;
+    background:#000;
+}
+
+/*=============================
+SEÇÃO DE CADA PROJETO
+=============================*/
+
+.project{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:flex-end;
+
+}
+
+/*=============================
+IMAGEM
+=============================*/
+
+.project img{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1);
+
+    transition:transform 8s ease;
+
+}
+
+.project:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/*=============================
+OVERLAY
+=============================*/
+
+.project .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.28),
+        rgba(0,0,0,.10)
+    );
+
+}
+
+/*=============================
+CONTEÚDO
+=============================*/
+
+.project-content{
+
+    position:relative;
+
+    z-index:10;
+
+    width:650px;
+
+    margin-left:90px;
+
+    margin-bottom:80px;
+
+}
+
+/*=============================
+LOCAL
+=============================*/
+
+.project-location{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    color:#D9D9D9;
+
+}
+
+/*=============================
+TÍTULO
+=============================*/
+
+.project-content h2{
+
+    font-size:64px;
+
+    line-height:68px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+/*=============================
+LINHA
+=============================*/
+
+.project-content h3{
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    padding-bottom:14px;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    border-bottom:1px solid rgba(255,255,255,.25);
+
+}
+
+/*=============================
+DESCRIÇÃO
+=============================*/
+
+.project-content p{
+
+    max-width:520px;
+
+    font-size:19px;
+
+    line-height:34px;
+
+    color:#DDD;
+
+    margin-bottom:40px;
+
+}
+
+/*=============================
+BOTÃO
+=============================*/
+
+.btn-project{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    transition:.35s;
+
+}
+
+.btn-project::after{
+
+    content:"→";
+
+    transition:.35s;
+
+}
+
+.btn-project:hover{
+
+    letter-spacing:5px;
+
+}
+
+.btn-project:hover::after{
+
+    transform:translateX(8px);
+
+}
+
+/*=============================
+CONTADOR
+=============================*/
+
+.project-number{
+
+    position:absolute;
+
+    right:90px;
+
+    bottom:70px;
+
+    font-size:120px;
+
+    font-weight:800;
+
+    color:rgba(255,255,255,.12);
+
+    user-select:none;
+
+    line-height:1;
+
+}
+
+.project-number span{
+
+    font-size:36px;
+
+    color:rgba(255,255,255,.28);
+
+}
+
+/*=============================
+DETALHE
+=============================*/
+
+.project::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    z-index:5;
+
+}
+
+/*=============================
+RESPONSIVIDADE TABLET
+=============================*/
+
+@media(max-width:1024px){
+
+.project-content{
+
+    width:80%;
+
+    margin-left:50px;
+
+    margin-bottom:60px;
+
+}
+
+.project-content h2{
+
+    font-size:48px;
+
+    line-height:54px;
+
+}
+
+.project-content h3{
+
+    font-size:16px;
+
+}
+
+.project-content p{
+
+    font-size:18px;
+
+    line-height:30px;
+
+}
+
+.project-number{
+
+    right:40px;
+
+    bottom:40px;
+
+    font-size:90px;
+
+}
+
+}
+
+/*=============================
+RESPONSIVO CELULAR
+=============================*/
+
+@media(max-width:768px){
+
+.project{
+
+    align-items:flex-end;
+
+}
+
+.project-content{
+
+    width:calc(100% - 50px);
+
+    margin:0 25px 45px;
+
+}
+
+.project-location{
+
+    letter-spacing:2px;
+
+}
+
+.project-content h2{
+
+    font-size:36px;
+
+    line-height:42px;
+
+}
+
+.project-content h3{
+
+    font-size:15px;
+
+}
+
+.project-content p{
+
+    font-size:16px;
+
+    line-height:28px;
+
+}
+
+.project-number{
+
+    right:20px;
+
+    bottom:20px;
+
+    font-size:60px;
+
+}
+
+.project-number span{
+
+    font-size:22px;
+
+}
+
+}
+
+/*==================================================
+ANIMAÇÕES DOS PROJETOS
+==================================================*/
+
+.project-content{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+}
+
+.project.show .project-content{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.project-location{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.8s ease;
+
+    transition-delay:.2s;
+
+}
+
+.project.show .project-location{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.project-content h2{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:1s ease;
+
+    transition-delay:.35s;
+
+}
+
+.project.show h2{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.project-content h3{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:.9s ease;
+
+    transition-delay:.5s;
+
+}
+
+.project.show h3{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.project-content p{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:1s ease;
+
+    transition-delay:.65s;
+
+}
+
+.project.show p{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.btn-project{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:1s ease;
+
+    transition-delay:.8s;
+
+}
+
+.project.show .btn-project{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+/*==================================================
+CONTADOR
+==================================================*/
+
+.project-number{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+    transition:1.2s ease;
+
+}
+
+.project.show .project-number{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+
+/*==================================================
+PARALLAX
+==================================================*/
+
+.project img{
+
+    will-change:transform;
+
+}
+
+
+
+/*==================================================
+OVERLAY
+==================================================*/
+
+.project .overlay{
+
+    transition:1s;
+
+}
+
+.project:hover .overlay{
+
+    background:linear-gradient(
+
+    to top,
+
+    rgba(0,0,0,.82),
+
+    rgba(0,0,0,.40),
+
+    rgba(0,0,0,.18)
+
+    );
+
+}
+
+
+
+/*==================================================
+BOTÃO
+==================================================*/
+
+.btn-project{
+
+    position:relative;
+
+}
+
+.btn-project::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:1px;
+
+    background:#FFF;
+
+    transition:.4s;
+
+}
+
+.btn-project:hover::before{
+
+    width:100%;
+
+}
+
+
+
+/*==================================================
+ZOOM CINEMATOGRÁFICO
+==================================================*/
+
+.project img{
+
+    animation:projectZoom 18s linear forwards;
+
+}
+
+@keyframes projectZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+
+
+/*==================================================
+TRANSIÇÃO TEXTO
+==================================================*/
+
+.project-content>*{
+
+    will-change:transform;
+
+}
+
+
+
+/*==================================================
+FADE ENTRE PROJETOS
+==================================================*/
+
+.project{
+
+    transition:opacity .8s ease;
+
+}
+
+
+
+/*==================================================
+LINHA DO TÍTULO
+==================================================*/
+
+.project h3{
+
+    position:relative;
+
+}
+
+.project h3::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-15px;
+
+    left:0;
+
+    width:70px;
+
+    height:2px;
+
+    background:#FFF;
+
+}
+
+
+
+/*==================================================
+HOVER DA IMAGEM
+==================================================*/
+
+.project:hover img{
+
+    filter:brightness(1.05);
+
+}
+
+
+
+/*==================================================
+MICROANIMAÇÃO
+==================================================*/
+
+.project:hover .project-number{
+
+    color:rgba(255,255,255,.22);
+
+}
+
+
+
+/*==================================================
+RESPONSIVO
+==================================================*/
+
+@media(max-width:768px){
+
+.project-content{
+
+    transition:1s;
+
+}
+
+.project-number{
+
+    opacity:.15;
+
+}
+
+}
+
+/*==================================================
+CONTATO
+==================================================*/
+
+#contato{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+#contato .background{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1.05);
+
+}
+
+#contato .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+}
+
+.contact-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:700px;
+
+    margin-left:90px;
+
+}
+
+.contact-content h2{
+
+    font-size:68px;
+
+    line-height:72px;
+
+    margin:25px 0;
+
+}
+
+.contact-content p{
+
+    max-width:600px;
+
+    font-size:20px;
+
+    line-height:34px;
+
+    color:#d7d7d7;
+
+    margin-bottom:45px;
+
+}
+
+
+
+/*==================================================
+LISTA CONTATO
+==================================================*/
+
+.contact-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    margin-bottom:50px;
+
+}
+
+.contact-item{
+
+    border-left:2px solid rgba(255,255,255,.15);
+
+    padding-left:20px;
+
+}
+
+.contact-item span{
+
+    display:block;
+
+    color:#9e9e9e;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+    text-transform:uppercase;
+
+}
+
+.contact-item strong{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+
+
+/*==================================================
+BOTÃO CONTATO
+==================================================*/
+
+.btn-contact{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 40px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    transition:.4s;
+
+}
+
+.btn-contact:hover{
+
+    background:#FFF;
+
+    color:#000;
+
+}
+
+
+
+/*==================================================
+FOOTER
+==================================================*/
+
+footer{
+
+    background:#050505;
+
+    padding:35px;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:#8e8e8e;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+/*==================================================
+MODAL
+==================================================*/
+
+#projectModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.5s;
+
+    z-index:999999;
+
+}
+
+#projectModal.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.modal-content{
+
+    position:relative;
+
+    width:92%;
+
+    max-width:1450px;
+
+    height:88vh;
+
+    background:#101010;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:58% 42%;
+
+}
+
+.modal-gallery{
+
+    background:#000;
+
+    overflow:auto;
+
+}
+
+/* Carousel inside modal */
+.modal-gallery{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+.carousel{
+    width:100%;
+    max-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.carousel-image{
+    max-width:100%;
+    max-height:80vh;
+    object-fit:contain;
+    display:block;
+}
+
+.carousel-btn{
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+    border:none;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    font-size:28px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.carousel-counter{
+    position:absolute;
+    bottom:12px;
+    right:18px;
+    color:#d9d9d9;
+    font-size:14px;
+    background:rgba(0,0,0,0.35);
+    padding:6px 10px;
+    border-radius:6px;
+}
+
+/* Carousel inside modal */
+.modal-gallery{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+.carousel{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.carousel-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.carousel-btn{
+    position:relative;
+    z-index:30;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.08);
+    color:#FFF;
+    font-size:30px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.carousel-btn:hover{ background:rgba(255,255,255,0.14); }
+
+.carousel-counter{
+    position:absolute;
+    bottom:18px;
+    right:20px;
+    color:#dcdcdc;
+    font-size:14px;
+    z-index:35;
+    background:rgba(0,0,0,0.3);
+    padding:6px 10px;
+    border-radius:8px;
+}
+
+.modal-info{
+
+    padding:70px;
+
+    overflow-y:auto;
+
+}
+
+.modal-location{
+
+    display:block;
+
+    margin-bottom:20px;
+
+    letter-spacing:3px;
+
+    color:#AFAFAF;
+
+}
+
+.modal-info h2{
+
+    font-size:52px;
+
+    margin-bottom:30px;
+
+}
+
+.modal-info p{
+
+    font-size:18px;
+
+    line-height:32px;
+
+    color:#D0D0D0;
+
+}
+
+
+
+/*==================================================
+FICHA TÉCNICA
+==================================================*/
+
+.project-data{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    margin-top:50px;
+
+}
+
+.project-data div{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding-top:18px;
+
+}
+
+.project-data small{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#8f8f8f;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.project-data strong{
+
+    font-size:18px;
+
+}
+
+
+
+/*==================================================
+BOTÃO FECHAR
+==================================================*/
+
+#closeModal{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#FFF;
+
+    color:#000;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:100;
+
+}
+
+#closeModal:hover{
+
+    transform:rotate(90deg);
+
+}
+
+
+
+/*==================================================
+ANIMAÇÕES
+==================================================*/
+
+.contact-content{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s;
+
+}
+
+#contato.show .contact-content{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.modal-content{
+
+    transform:scale(.92);
+
+    transition:.45s;
+
+}
+
+#projectModal.active .modal-content{
+
+    transform:scale(1);
+
+}
+
+
+
+/*==================================================
+RESPONSIVO TABLET
+==================================================*/
+
+@media(max-width:1024px){
+
+.contact-content{
+
+    width:85%;
+
+    margin-left:50px;
+
+}
+
+.contact-content h2{
+
+    font-size:52px;
+
+    line-height:60px;
+
+}
+
+.contact-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.modal-content{
+
+    grid-template-columns:1fr;
+
+    height:95vh;
+
+}
+
+.modal-gallery{
+
+    height:45vh;
+
+}
+
+.modal-info{
+
+    padding:40px;
+
+}
+
+}
+
+
+
+/*==================================================
+RESPONSIVO CELULAR
+==================================================*/
+
+@media(max-width:768px){
+
+#header{
+
+    padding:20px;
+
+}
+
+nav{
+
+    gap:20px;
+
+}
+
+nav a{
+
+    font-size:11px;
+
+}
+
+.logo img{
+
+    width:90px;
+
+}
+
+#home{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#home .background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    animation:none;
+}
+
+#home .overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.5);
+}
+
+#sobre{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+#sobre .background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#sobre .overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.65);
+}
+
+.hero{
+
+    margin:30px;
+    position:relative;
+    z-index:20;
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    line-height:56px;
+
+}
+
+.hero h2{
+
+    font-size:22px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+}
+
+.about-content{
+
+    width:calc(100% - 60px);
+
+    margin:30px;
+
+    position:relative;
+
+    z-index:20;
+
+}
+
+.about-content h2{
+
+    font-size:42px;
+
+    line-height:46px;
+
+}
+
+.about-content p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+}
+
+.contact-content{
+
+    width:calc(100% - 60px);
+
+    margin:30px;
+
+}
+
+.contact-content h2{
+
+    font-size:42px;
+
+    line-height:48px;
+
+}
+
+.contact-content p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+}
+
+.contact-item strong{
+
+    font-size:18px;
+
+}
+
+.btn,
+
+.btn-contact{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.modal-info{
+
+    padding:25px;
+
+}
+
+.modal-info h2{
+
+    font-size:34px;
+
+}
+
+.project-data{
+
+    grid-template-columns:1fr;
+
+}
+
+/* Force project content visible on small screens (disable entrance animations) */
+.project-content,
+.project-location,
+.project-content h2,
+.project-content h3,
+.project-content p,
+.btn-project,
+.project-number{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+}
+
+.project-content{ z-index:12; }
+
+/* Make project sections and images fit smaller screens better */
+.project{
+    height:auto;
+    min-height:auto;
+    align-items:flex-start;
+    padding-top:20px;
+    display:block;
+}
+
+.project img{
+    position:relative;
+    width:100%;
+    height:auto;
+    max-height:50vh;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.project-content{
+    position:relative !important;
+    z-index:20 !important;
+    width:calc(100% - 50px) !important;
+    margin:0 25px 25px !important;
+}
+
+/* Reduce modal carousel image height on small screens */
+.carousel-image{
+    max-height:50vh;
+}
+
+.modal-gallery{ padding:8px; }
+
+/* Mobile carousel: show full image without cropping */
+.carousel{
+    height:auto;
+    min-height:50vh;
+}
+
+.carousel-image{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
