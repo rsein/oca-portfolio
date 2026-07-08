@@ -6,6 +6,40 @@ OCA ENGENHARIA - SCRIPT PRINCIPAL
 
 
 /*==================================================
+MENU MOBILE
+==================================================*/
+
+const menuToggle = document.getElementById("menuToggle");
+
+const nav = document.getElementById("nav");
+
+menuToggle.addEventListener("click", () => {
+
+    menuToggle.classList.toggle("active");
+
+    nav.classList.toggle("active");
+
+});
+
+// Fechar menu ao clicar em um link
+
+const navLinks = nav.querySelectorAll("a");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menuToggle.classList.remove("active");
+
+        nav.classList.remove("active");
+
+    });
+
+});
+
+
+
+/*==================================================
 LOADER
 ==================================================*/
 
@@ -251,7 +285,7 @@ modal.addEventListener("click", (e) => {
 
 /*==================================================
 TEXTO DINÂMICO HOME
-==================================================*/
+==================================================
 
 const changingText = document.getElementById("changingText");
 
@@ -263,7 +297,7 @@ const texts = [
 
     "Infraestrutura"
 
-];
+];  */
 
 let index = 0;
 
