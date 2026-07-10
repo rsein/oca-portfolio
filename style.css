@@ -1831,6 +1831,20 @@ LISTA CONTATO
 
 }
 
+.contact-item strong a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+.contact-item strong a:hover{
+
+    opacity:0.8;
+
+}
+
 
 
 /*==================================================
